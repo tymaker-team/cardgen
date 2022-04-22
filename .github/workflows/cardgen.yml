@@ -29,12 +29,10 @@ jobs:
       run: sudo apt install mono-complete
     - name: Clone mono-basic
       run: git clone https://github.com/mono/mono-basic.git
-    - name: Enter mono-basic
-      run: cd mono-basic
     - name: Configure mono-basic
-      run: ./configure
+      run: cd mono-basic && ./configure
     - name: Make and install mono-basic
-      run: make && sudo make install
+      run: cd mono-basic && make && sudo make install
     - name: Exit mono-basic
       run: cd
     - name: Build
