@@ -27,14 +27,8 @@ jobs:
       run: sudo apt update
     - name: Install Mono
       run: sudo apt install mono-complete
-    - name: Clone mono-basic
-      run: git clone https://github.com/mono/mono-basic.git
-    - name: Configure mono-basic
-      run: cd mono-basic && ./configure
-    - name: Make and install mono-basic
-      run: cd mono-basic && make && sudo make install
-    - name: Exit mono-basic
-      run: cd
+    - name: Install mono-basic
+      run: sudo apt install mono-vbnc
     - name: Build
       run: vbnc Bot.VB
     - name: Upload a Build Artifact
