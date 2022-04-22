@@ -26,7 +26,7 @@ jobs:
     - name: Update APT
       run: sudo apt update
     - name: Install Mono
-      run: sudo apt install mono-basic
+      run: sudo apt install mono-complete
     - name: Build
       run: vbnc Bot.VB
     - name: Upload a Build Artifact
