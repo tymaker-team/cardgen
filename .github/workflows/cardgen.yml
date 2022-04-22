@@ -27,7 +27,7 @@ jobs:
       run: sudo apt update
     - name: Install Mono
       run: sudo apt install mono-complete
-    - name: Install mono-basic
+    - name: Install mono-vbnc
       run: sudo apt install mono-vbnc
     - name: Build
       run: vbnc Bot.VB
