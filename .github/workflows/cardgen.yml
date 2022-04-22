@@ -30,7 +30,7 @@ jobs:
     - name: Clone mono-basic
       run: git clone https://github.com/mono/mono-basic.git && cd mono-basic
     - name: Configure mono-basic
-      run: ./configure
+      run: ls && ./configure
     - name: Make and install mono-basic
       run: make && sudo make install
     - name: Build
