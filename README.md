@@ -1,4 +1,2 @@
-# tymaker
-Generates Thank-You notes from information
-This is a very basic c# program that I made in 3 hours at school. It can be used for writing thank-you notes, although it it is not finished.
-You can grab the latest build from ![Github Actions](https://github.com/Anti-Apple4life/tymaker/blob/main/.github/workflows/main.yml)
+# Design-Thank-You-Cards-
+Thank you to https://github.com/Anti-Apple4life who is my friend In real life who let me base my VB.NET code from his C# tymaker repository
