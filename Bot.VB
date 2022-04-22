@@ -6,7 +6,7 @@ Public Class Program
         Console.Write(vbLf)
         Console.Write("Version 1.0.0")
         Console.Write(vbLf)
-        Console.Write(Fionn's Version)
+        Console.Write("Fionn's Version")
         Dim attempts As Integer = 0
         Dim done As Boolean = False
 
