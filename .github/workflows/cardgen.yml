@@ -28,11 +28,15 @@ jobs:
     - name: Install Mono
       run: sudo apt install mono-complete
     - name: Clone mono-basic
-      run: git clone https://github.com/mono/mono-basic.git && cd mono-basic
+      run: git clone https://github.com/mono/mono-basic.git
+    - name: Enter mono-basic
+      run: cd mono-basic
     - name: Configure mono-basic
-      run: ls && ./configure
+      run: ./configure
     - name: Make and install mono-basic
       run: make && sudo make install
+    - name: Exit mono-basic
+      run: cd
     - name: Build
       run: vbnc Bot.VB
     - name: Upload a Build Artifact
