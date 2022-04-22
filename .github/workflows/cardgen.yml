@@ -28,7 +28,7 @@ jobs:
     - name: Install Mono
       run: sudo apt install mono-complete
     - name: Clone mono-basic
-      run: https://github.com/mono/mono-basic.git && cd mono-basic
+      run: git clone https://github.com/mono/mono-basic.git && cd mono-basic
     - name: Configure mono-basic
       run: ./configure
     - name: Make and install mono-basic
