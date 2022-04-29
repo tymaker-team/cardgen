@@ -1,4 +1,4 @@
-name: .NET
+name: Cardgen Builds
 
 on:
   push:
