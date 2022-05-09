@@ -2,9 +2,9 @@ name: Cardgen Builds
 
 on:
   push:
-    branches: [ cardgen ]
+    branches: [ main ]
   pull_request:
-    branches: [ cardgen ]
+    branches: [ main ]
 
 jobs:
   build:
