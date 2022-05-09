@@ -1,4 +1,4 @@
-name: Cardgen Builds
+name: Cardgen  Builds
 
 on:
   push:
