@@ -17,23 +17,42 @@ jobs:
       uses: actions/setup-dotnet@v2
       with:
         dotnet-version: 6.0.x
-    - name: Install Mono prerequisites1
-      run: sudo apt install gnupg ca-certificates
-    - name: Install Mono Prerequisites2
-      run: sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
-    - name: Install Mono Prerequisites3
-      run: echo "deb https://download.mono-project.com/repo/ubuntu stable-focal main" | sudo tee /etc/apt/sources.list.d/mono-official-stable.list
-    - name: Update APT
-      run: sudo apt update
-    - name: Install Mono
-      run: sudo apt install mono-complete
-    - name: Install mono-vbnc
-      run: sudo apt install mono-vbnc
-    - name: Build
-      run: vbnc Bot.VB
+    - name: Build Windows
+      run: dotnet publish --output "build/windows" --runtime win-x64 --configuration Release -p:PublishSingleFile=true -p:PublishTrimmed=true --self-contained true
+    - name: Build Mac
+      run: dotnet publish --output "build/mac" --runtime osx-x64 --configuration Release -p:PublishSingleFile=true -p:PublishTrimmed=true --self-contained true
+    - name: Build Linux
+      run: dotnet publish --output "build/linux" --runtime linux-x64 --configuration Release -p:PublishSingleFile=true -p:PublishTrimmed=true --self-contained true
+    
+    - name: Allow executing for Mac
+      run: chmod a+x build/mac/cardgen
+    
+    - name: Allow executing for Linux
+      run: chmod a+x build/linux/cardgen
+      
+    - name: Tar files for Mac
+      run: tar -cvf cardgen-mac.tar build/mac
+      
+    - name: Tar files for Linux
+      run: tar -cvf cardgen-linux.tar build/linux
+    
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v3.0.0
       with:
         # Artifact name
-        name: cardgen
-        path: Bot.exe
+        name: Windows
+        path: build/windows
+    
+    - name: Upload a Build Artifact
+      uses: actions/upload-artifact@v3.0.0
+      with:
+        # Artifact name
+        name: MacOS
+        path: cardgen-mac.tar
+
+    - name: Upload a Build Artifact
+      uses: actions/upload-artifact@v3.0.0
+      with:
+        # Artifact name
+        name: Linux
+        path: cardgen-linux.tar
